@@ -1,0 +1,98 @@
+source	filename	Celltype	Cell
+DICE	B_CELL_NAIVE	NaiveB	NaiveB
+OneK1K	bin	NaiveB	NaiveB
+eQTL_catalogue	QTD000474	NaiveB	NaiveB
+ImmuNexUT	Naive_B	NaiveB	NaiveB
+OneK1K	bmem	GCB	B mem/GCB
+ImmuNexUT	SM_B	GCB	B mem/GCB
+OneK1K	plasma	PGF	plasma/PGF
+ImmuNexUT	Plasmablast	PGF	plasma/PGF
+DICE	CD4_NAIVE	NaiveT	NaiveT
+OneK1K	cd4nc	NaiveT	NaiveT
+eQTL_catalogue	QTD000031	NaiveT	NaiveT
+eQTL_catalogue	QTD000479	NaiveT	NaiveT
+eQTL_catalogue	QTD000105	NaiveT	NaiveT
+ImmuNexUT	Naive_CD4	NaiveT	NaiveT
+DICE	CD4_NAIVE	PBMC_naiveTCD4_unstim	NaiveT
+OneK1K	cd4nc	PBMC_naiveTCD4_unstim	NaiveT
+eQTL_catalogue	QTD000031	PBMC_naiveTCD4_unstim	NaiveT
+eQTL_catalogue	QTD000479	PBMC_naiveTCD4_unstim	NaiveT
+eQTL_catalogue	QTD000105	PBMC_naiveTCD4_unstim	NaiveT
+ImmuNexUT	Naive_CD4	PBMC_naiveTCD4_unstim	NaiveT
+DICE	CD4_STIM	PBMC_naiveTCD4_8hr	Stimulated T-cells
+OneK1K	cd4et	PBMC_naiveTCD4_8hr	Stimulated T-cells
+eQTL_catalogue	QTD000484	PBMC_naiveTCD4_8hr	Stimulated T-cells
+ImmuNexUT	Mem_CD4	PBMC_naiveTCD4_8hr	Stimulated T-cells
+DICE	CD4_STIM	PBMC_naiveTCD4_24hr	Stimulated T-cells
+OneK1K	cd4et	PBMC_naiveTCD4_24hr	Stimulated T-cells
+eQTL_catalogue	QTD000484	PBMC_naiveTCD4_24hr	Stimulated T-cells
+ImmuNexUT	Mem_CD4	PBMC_naiveTCD4_24hr	Stimulated T-cells
+DICE	MONOCYTES	Monocyte	Monocytes
+OneK1K	monoc	Monocyte	Monocytes
+eQTL_catalogue	QTD000504	Monocyte	Monocytes
+eQTL_catalogue	QTD000021	Monocyte	Monocytes
+eQTL_catalogue	QTD000409	Monocyte	Monocytes
+ImmuNexUT	CL_Mono	Monocyte	Monocytes
+DICE	M2	Monocyte	Monocytes-nonclassical
+OneK1K	mononc	Monocyte	Monocytes-nonclassical
+eQTL_catalogue	QTD000499	Monocyte	Monocytes-nonclassical
+ImmuNexUT	CL_Mono	Monocyte	Monocytes-nonclassical
+DICE	NK	NK	Natural killer
+OneK1K	nk	NK	Natural killer
+eQTL_catalogue	QTD000509	NK	Natural killer
+ImmuNexUT	NK	NK	Natural killer
+DICE	TFH	TFH	T follicular helper cells
+eQTL_catalogue	QTD000439	TFH	T follicular helper cells
+ImmuNexUT	Tfh	TFH	T follicular helper cells
+DICE	TH1	Th1	Th1
+eQTL_catalogue	QTD000449	Th1	Th1
+ImmuNexUT	Th1	Th1	Th1
+DICE	TH1	Th1_activated	Th1
+eQTL_catalogue	QTD000449	Th1_activated	Th1
+ImmuNexUT	Th1	Th1_activated	Th1
+DICE	TH2	Th2_activated	Th2
+eQTL_catalogue	QTD000454	Th2_activated	Th2
+ImmuNexUT	Th2	Th2_activated	Th2
+DICE	TH2	Th2	Th2
+eQTL_catalogue	QTD000454	Th2	Th2
+ImmuNexUT	Th2	Th2	Th2
+DICE	TH17	Th17	Th17
+eQTL_catalogue	QTD000444	Th17	Th17
+eQTL_catalogue	QTD000459	Th17	Th17
+ImmuNexUT	Th17	Th17	Th17
+DICE	TH17	Th17_activated	Th17
+eQTL_catalogue	QTD000444	Th17_activated	Th17
+eQTL_catalogue	QTD000459	Th17_activated	Th17
+ImmuNexUT	Th17	Th17_activated	Th17
+DICE	TREG_NAIVE	Treg	Treg
+eQTL_catalogue	QTD000469	Treg	Treg
+eQTL_catalogue	QTD000036	Treg	Treg
+ImmuNexUT	Fr_I_nTreg	Treg	Treg
+DICE	TREG_MEM	Treg_activated	Treg memory/activated
+eQTL_catalogue	QTD000464	Treg_activated	Treg memory/activated
+ImmuNexUT	Fr_II_eTreg	Treg_activated	Treg memory/activated
+OneK1K	dc	CD1cPluscDC	Dendritic cells
+ImmuNexUT	mDC	CD1cPluscDC	Dendritic cells
+OneK1K	dc	pDC	Dendritic cells
+ImmuNexUT	pDC	pDC	Dendritic cells
+GTEx	Whole_Blood	NaiveB	NaiveB
+GTEx	Whole_Blood	GCB	B mem/GCB
+GTEx	Whole_Blood	PGF	plasma/PGF
+GTEx	Whole_Blood	NaiveT	NaiveT
+GTEx	Whole_Blood	PBMC_naiveTCD4_unstim	NaiveT
+GTEx	Whole_Blood	PBMC_naiveTCD4_8hr	Stimulated T-cells
+GTEx	Whole_Blood	PBMC_naiveTCD4_24hr	Stimulated T-cells
+GTEx	Whole_Blood	Monocyte	Monocytes
+GTEx	Whole_Blood	Monocyte	Monocytes-nonclassical
+GTEx	Whole_Blood	NK	Natural killer
+GTEx	Whole_Blood	TFH	T follicular helper cells
+GTEx	Whole_Blood	Th1	Th1
+GTEx	Whole_Blood	Th1_activated	Th1
+GTEx	Whole_Blood	Th2_activated	Th2
+GTEx	Whole_Blood	Th2	Th2
+GTEx	Whole_Blood	Th17	Th17
+GTEx	Whole_Blood	Th17_activated	Th17
+GTEx	Whole_Blood	Treg	Treg
+GTEx	Whole_Blood	Treg_activated	Treg memory/activated
+GTEx	Whole_Blood	CD1cPluscDC	Dendritic cells
+GTEx	Whole_Blood	pDC	Dendritic cells
