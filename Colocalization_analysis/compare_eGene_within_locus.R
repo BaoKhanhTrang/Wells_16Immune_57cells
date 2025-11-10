@@ -1,7 +1,6 @@
-.libPaths( c("/home/trangk/R/x86_64-pc-linux-gnu-library/4.4" , .libPaths() ) )
 args = commandArgs(trailingOnly=TRUE)
 
-dir="/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs"
+dir="eQTLs"
 num="258"
 dbname=args[1]
 #dbname="DICE"
@@ -16,7 +15,7 @@ v2g=readRDS(paste0(dir,"/position_loci/",num,"loci_to_4125genes.rds"))
 allv2g=readRDS(paste0(dir,"/allv2g.rds"))
 allv2g = allv2g[which(allv2g$system=="immune"),]
 
-tss=read.table("/mnt/isilon/sfgi/trangk/annotationFiles/gencode_v40/gencode.v40.TSS.bed")
+tss=read.table("gencode_v40/gencode.v40.TSS.bed")
 colnames(tss)=c("gene_chom","start","gene_tss","tx_id","gene_id","strand")
 tss$ensembl_gene_id = paste(tss$gene_id)
 tmp = unlist(strsplit(paste(grep("ENSG|\\.",tss$gene_id,value = TRUE)),split="\\."))

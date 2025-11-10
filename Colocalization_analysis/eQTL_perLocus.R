@@ -1,4 +1,3 @@
-.libPaths( c("/home/trangk/R/x86_64-pc-linux-gnu-library/4.4" , .libPaths() ) )
 args = commandArgs(trailingOnly=TRUE)
 library(vroom)
 library(tidyr)
@@ -15,7 +14,7 @@ locus = args[1]
 num = args[2]
 eqtl = args[3]
 N = as.numeric(paste(args[4]))
-main_dir="/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/"
+main_dir="eQTLs/"
 
 chrom=as.integer(gsub('[a-zA-Z]', '',paste(unlist(strsplit(locus,split="\\.")[[1]][[1]]))))
 colocStart=as.numeric(paste(unlist(strsplit(locus,split="\\.")[[1]][[2]])))

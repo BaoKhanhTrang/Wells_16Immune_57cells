@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #SBATCH --mail-type=END,FAIL 
-#SBATCH --mail-user=trangk@chop.edu
+#SBATCH --mail-user=
 #SBATCH --open-mode=append
 
 name=$1
 db=$2
 tail=$3
 dirin=$4
-dir=/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs
+dir=eQTLs
 
 lastfile=$(ls -l -t $dir/databases/$db/input/$name.ENSG*.txt | head -n 1 | awk '{print $NF}' | xargs basename | cut -d'.' -f2)
 lin=$(grep -n "$lastfile" $dir/genes_locus/V2G_ensembl_gene_id.txt | cut -d':' -f1)

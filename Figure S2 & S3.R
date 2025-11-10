@@ -3,31 +3,31 @@ allstat=readRDS("allstat.rds")
 trait=read.delim("trait_gwas.txt",header=T)
 ALL=NULL
 for(i in 1:nrow(trait)){
-  tmp = read.delim(paste0("~/Documents/analysis/ldsc/immune_panel/narrow/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
+  tmp = read.delim(paste0("narrow/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
   tmp$trait = paste(trait$Name[i])
   tmp$cate = "cREs"
   tmp$N = tmp$Prop._SNPs * trait$RemainSNPs[i]
   ALL=rbind(ALL,tmp)
   
-  tmp = read.delim(paste0("~/Documents/analysis/ldsc/immune_panel/atac/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
+  tmp = read.delim(paste0("atac/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
   tmp$trait = paste(trait$Name[i])
   tmp$cate = "Total OCRs"
   tmp$N = tmp$Prop._SNPs * trait$RemainSNPs[i]
   ALL=rbind(ALL,tmp)
   
-  tmp = read.delim(paste0("~/Documents/analysis/ldsc/immune_panel/Prom/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
+  tmp = read.delim(paste0("Prom/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
   tmp$trait = paste(trait$Name[i])
   tmp$cate = "Promoter OCRs"
   tmp$N = tmp$Prop._SNPs * trait$RemainSNPs[i]
   ALL=rbind(ALL,tmp)
   
-  tmp = read.delim(paste0("~/Documents/analysis/ldsc/immune_panel/expand/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
+  tmp = read.delim(paste0("expand/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
   tmp$trait = paste(trait$Name[i])
   tmp$cate = "cREs ±500bps"
   tmp$N = tmp$Prop._SNPs * trait$RemainSNPs[i]
   ALL=rbind(ALL,tmp)
   
-  tmp = read.delim(paste0("~/Documents/analysis/ldsc/immune_panel/notcRE_notProm/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
+  tmp = read.delim(paste0("notcRE_notProm/summary.lia_",trait$Name[i],".txt"),header=T,sep="\t",fill = TRUE)
   tmp$trait = paste(trait$Name[i])
   tmp$cate = "not_cREProm_OCRs"
   tmp$N = tmp$Prop._SNPs * trait$RemainSNPs[i]
@@ -46,22 +46,22 @@ ALL$cate = factor(ALL$cate,levels = c("Total OCRs",
                                       "not_cREProm_OCRs"))
 ALL$sig = round(ALL$Enrichment_p,digits = 2) <= 0.05
 
-sd=read.table("~/Documents/analysis/ldsc/immune_panel/narrow.sd.txt",header=F,sep=":",strip.white = T)
+sd=read.table("narrow.sd.txt",header=F,sep=":",strip.white = T)
 colnames(sd)=c("Celltype","sdc")
 sd$cate="cREs"
-tmp=read.table("~/Documents/analysis/ldsc/immune_panel/atac.sd.txt",header=F,sep=":",strip.white = T)
+tmp=read.table("atac.sd.txt",header=F,sep=":",strip.white = T)
 colnames(tmp)=c("Celltype","sdc")
 tmp$cate="Total OCRs"
 sd = rbind(sd,tmp)
-tmp=read.table("~/Documents/analysis/ldsc/immune_panel/Prom.sd.txt",header=F,sep=":",strip.white = T)
+tmp=read.table("Prom.sd.txt",header=F,sep=":",strip.white = T)
 colnames(tmp)=c("Celltype","sdc")
 tmp$cate="Promoter OCRs"
 sd = rbind(sd,tmp)
-tmp=read.table("~/Documents/analysis/ldsc/immune_panel/expand.sd.txt",header=F,sep=":",strip.white = T)
+tmp=read.table("expand.sd.txt",header=F,sep=":",strip.white = T)
 colnames(tmp)=c("Celltype","sdc")
 tmp$cate="cREs ±500bps"
 sd = rbind(sd,tmp)
-tmp=read.table("~/Documents/analysis/ldsc/immune_panel/notcRE_notProm.sd.txt",header=F,sep=":",strip.white = T)
+tmp=read.table("notcRE_notProm.sd.txt",header=F,sep=":",strip.white = T)
 colnames(tmp)=c("Celltype","sdc")
 tmp$cate="not_cREProm_OCRs"
 sd = rbind(sd,tmp)
@@ -70,7 +70,7 @@ rm(tmp)
 ALL=merge(ALL,sd,by=c("Celltype","cate"))
 ALL=merge(ALL,trait[,c("Name","RemainSNPs")],by.x="trait",by.y="Name")
 
-h2=read.table("~/Documents/analysis/ldsc/immune_panel/traits.h2",header=F)
+h2=read.table("traits.h2",header=F)
 colnames(h2)=c("trait",'h2g','h2gSE')
 ALL=merge(ALL,h2,by="trait")
 
@@ -198,7 +198,7 @@ all$trait = factor(all$trait,levels = c("GD","HT",
                                         "AS",'JIA','MS',"PSO",
                                         'ALG','CEL','ECZ','T1D',"RA","SLE",
                                         'IBD','UC','CRO','VIT'))
-cairo_pdf("~/Documents/analyses/ldsc/immune_panel/MAplot_trait_tau.pdf",height = 8,width = 6)
+cairo_pdf("MAplot_trait_tau.pdf",height = 8,width = 6)
 ggplot(all) + geom_point(aes(tau,-log10(tau_p)))+
   geom_hline(yintercept = -log10(0.05),color="red",linetype=2)+
   xlab(paste0("Conditional annotation effect size (", "\U1D749","*)"))+
@@ -207,7 +207,7 @@ ggplot(all) + geom_point(aes(tau,-log10(tau_p)))+
 dev.off()
 
 # ======= Figure S3 D ======= 
-cairo_pdf("~/Documents/analysis/ldsc/immune_panel/MAplot_tau.pdf",height = 4,width = 6)
+cairo_pdf("MAplot_tau.pdf",height = 4,width = 6)
 ggplot(all) + geom_point(aes(tau,-log10(tau_p)))+
   geom_hline(yintercept = -log10(0.05),color="red",linetype=2)+
   xlab(paste0("Conditional annotation effect size (", "\U1D749","*)"))+

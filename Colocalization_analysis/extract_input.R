@@ -1,4 +1,4 @@
-dir="/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/traits/"
+dir="eQTLs/traits/"
 args = commandArgs(trailingOnly=TRUE)
 library(vroom)
 num=args[1]
@@ -9,7 +9,7 @@ print("trait input file successfully loaded")
 trait_region[[trait_CHRcol]] <- as.integer(gsub('[a-zA-Z]', '', trait_region[[trait_CHRcol]]))
 trait_region[[trait_BPcol]] <- as.numeric(trait_region[[trait_BPcol]])
 print(head(trait_region))
-loci=list.files(paste0("/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/position_loci/",num,"loci/"),pattern=".input")
+loci=list.files(paste0("eQTLs/position_loci/",num,"loci/"),pattern=".input")
 loci=sub(".input","",loci)
 
 for(i in 1:length(loci)){
@@ -18,7 +18,7 @@ for(i in 1:length(loci)){
     chrom=as.integer(gsub('[a-zA-Z]', '',paste(unlist(strsplit(locus,split="\\.")[[1]][[1]]))))
     colocStart=as.numeric(paste(unlist(strsplit(locus,split="\\.")[[1]][[2]])))
     colocStop=as.numeric(paste(unlist(strsplit(locus,split="\\.")[[1]][[3]])))
-    rsid = read.table(paste0("/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/position_loci/",num,"loci/",locus,".input"),header=F)
+    rsid = read.table(paste0("eQTLs/position_loci/",num,"loci/",locus,".input"),header=F)
     rsid = paste(rsid$V1)
 
     reg = which(trait_region[[trait_CHRcol]] == chrom & trait_region[[trait_BPcol]] >= colocStart & trait_region[[trait_BPcol]] <= colocStop)

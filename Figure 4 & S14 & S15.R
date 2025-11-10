@@ -253,7 +253,7 @@ for(i in c(1:12,14:length(cells))){
 fdft1=fdft1[which(fdft1$padj <= 0.05),]
 fdft1$logFC = formatC(fdft1$log2FoldChange,digits = 2)
 fdft1$p.signif = symnum(fdft1$padj,cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, Inf), symbols = c("****", "***", "**", "*", "ns"))
-pdf("~/Documents/analysis/V2G/Immune_panel_topLD/some genes for vignettes/SLE_RA.FDFT1.pdf",width = 20,height = 20)
+pdf("SLE_RA.FDFT1.pdf",width = 20,height = 20)
 ggboxplot(gatherfdft1,x="disease",y="count",color="disease",add="jitter",palette="lancet")+
     facet_wrap(~celltype,scale="free")+
     stat_pvalue_manual(fdft1,label = "p={p.format}",  tip.length = 0.01,vjust=1.5)+

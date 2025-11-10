@@ -1,4 +1,3 @@
-.libPaths( c("/home/trangk/R/x86_64-pc-linux-gnu-library/4.4" , .libPaths() ) )
 args = commandArgs(trailingOnly=TRUE)
 library(foreach)
 library(doParallel)
@@ -9,7 +8,7 @@ options(timeout=1000000000)
 
 num = args[1]
 locus = args[2]
-main_dir="/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/"
+main_dir="eQTLs/"
 
 chrom=paste(unlist(strsplit(locus,split="\\.")[[1]][[1]]))
 

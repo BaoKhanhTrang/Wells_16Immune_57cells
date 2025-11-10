@@ -1,4 +1,3 @@
-.libPaths( c("/home/trangk/R/x86_64-pc-linux-gnu-library/4.4" , .libPaths() ) )
 library(vroom)
 library(tidyr)
 library(dplyr)
@@ -16,12 +15,12 @@ cores <- detectCores()
 registerDoParallel(cores)
 
 # Main directory and input arguments
-main_dir <- "/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/"
+main_dir <- "eQTLs/"
 num=258
 args <- commandArgs(trailingOnly = TRUE)
 locus <- args[1]
 chrom=gsub('chr', '',paste(unlist(strsplit(locus,split="\\.")[[1]][[1]])))
-ld_ref=paste0("/mnt/isilon/sfgi/trangk/annotationFiles/GWAS_reference/1000G_v3/1000G.EUR.hg38.",chrom)
+ld_ref=paste0("1000G_v3/1000G.EUR.hg38.",chrom)
 rsid = readLines(paste0(main_dir,"position_loci/",num,"loci/",locus,".input"))
 
 Ns=list(OneK1K=982,DICE=91,eQTL_catalogue=NULL)

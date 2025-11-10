@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #SBATCH --mail-type=END,FAIL 
-#SBATCH --mail-user=trangk@chop.edu
+#SBATCH --mail-user=
 
-dir=/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs
+dir=eQTLs
 num=$1
 eGene_db=$2
 dbname=$3

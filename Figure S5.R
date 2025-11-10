@@ -2,7 +2,7 @@ library("PRROC")
 library("precrec")
 library(ggrepel)
 
-allv2g=readRDS("~/Documents/analyses/V2G/Immune_panel_topLD/allv2g.rds")
+allv2g=readRDS("allv2g.rds")
 
 burren=read.table("Burren.v2g_v2g.txt",header=T)
 javrie=read.table("jav.v2g_v2g.txt",header=T)

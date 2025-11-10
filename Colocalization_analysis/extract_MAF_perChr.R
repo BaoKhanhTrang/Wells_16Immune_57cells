@@ -7,12 +7,12 @@ registerDoParallel(cores)
 options(timeout=1000000000)
 
 chr = args[1]
-splits=list.files(paste0("/scr1/users/trangk/chr",chr,"/"),pattern = "split_")
+splits=list.files(paste0("/scr1/chr",chr,"/"),pattern = "split_")
 
 
 res <- foreach(s=1:length(splits)) %dopar% {
-  filename = paste0("/mnt/isilon/sfgi/trangk/analyses/wells/eQTLs/MAF/chr",chr,".",splits[s])
-  vcf=vroom(paste0("/scr1/users/trangk/chr",chr,"/",splits[s]),delim="\t" ,col_select = c(3,4,5,8),col_names=F,comment="#")
+  filename = paste0("eQTLs/MAF/chr",chr,".",splits[s])
+  vcf=vroom(paste0("/scr1/chr",chr,"/",splits[s]),delim="\t" ,col_select = c(3,4,5,8),col_names=F,comment="#")
   colnames(vcf)=c("ID","REF","ALT","INFO")
 
   if(file.exists(filename)){
