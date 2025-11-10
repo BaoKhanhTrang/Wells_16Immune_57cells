@@ -20,11 +20,6 @@ gtex=readRDS("GTEx.eGenes_ld.rds")
 gtex$keep <- ifelse(gtex$shared == "shared", "overlapped",
                    ifelse(gtex$shared == "V2G", "V2G only",
                           ifelse(gtex$shared == "outsideLD", "outsideLD", "Diverged")))
-imu=readRDS("ImmuNexUT.eGenes_ld.rds")
-imu$keep <- ifelse(imu$shared == "shared", "overlapped",
-                 ifelse(imu$shared == "V2G", "V2G only",
-                          ifelse(imu$shared == "outsideLD", "outsideLD", "Diverged")))
-
 
 dice=readRDS("DICE.eGenes_ld.rds")
 dice$keep <- case_when(
@@ -132,7 +127,7 @@ data$regionEdge$col <- plyr::mapvalues(
 zer=data$regionLabel$id[which(data$regionData$count==0)]
 if(length(zer)>0){data$regionEdge$col[which(data$regionEdge$id %in% zer)] = "#ffffff"}
 
-pdf("~/Documents/analysis/eQTL/immune_panel/shared_genes_exclude_chromdiff_andOutsideLD.noImmuNexUT.pdf")
+pdf("shared_genes_exclude_chromdiff_andOutsideLD.noImmuNexUT.pdf")
 ggplot() +
   geom_polygon(aes(X, Y, fill = I(col), group = id), data = venn_regionedge(data), show.legend = F) +
   geom_path(aes(X, Y, color = id, group = id), data = venn_setedge(data), show.legend = F) +
@@ -161,7 +156,7 @@ for(i in 1:nrow(Cellline)){
   Cellline$total[i] = length(unique(eGenes$ensembl_gene_id[eq]))
 }
 tmp2=reshape2::melt(Cellline[,1:4])
-pdf("~/Documents/analysis/eQTL/immune_panel/NumerGene_perCellLine_v4.noImmuNexUT.pdf",height = 5,width = 6)
+pdf("NumerGene_perCellLine_v4.noImmuNexUT.pdf",height = 5,width = 6)
 ggplot(tmp2)+
   geom_bar(aes(1,y=value,fill=variable),position = position_fill(),stat = "identity")+
   geom_text(
@@ -315,7 +310,7 @@ g3=ggplot(tmp2)+
         legend.title = element_blank(),legend.position = "none",axis.title = element_blank())
 
 
-pdf("/NumerGene_perCell_perTrait_v4.noImmuNexUT.pdf",height = 10,width = 12)
+pdf("NumerGene_perCell_perTrait_v4.noImmuNexUT.pdf",height = 10,width = 12)
 g2+g1+plot_spacer()+g3+plot_layout(widths = c(1,8),nrow = 2,heights = c(8,1),guides = "collect") & theme(legend.position = 'bottom')
 dev.off()
 
@@ -406,12 +401,12 @@ inp=NULL
 library(biomaRt)
 ensembl <- useEnsembl(biomart = "snp", dataset = "hsapiens_snp")
 for(i in 1:nrow(p4)){
-  file=paste0("~/Documents/analysis/eQTL/immune_panel/coloc_results/",p4$trait[i],"/",p4$source[i],"/",p4$locus[i],".",p4$ensembl_gene_id[i],".",p4$gene_name[i],".",p4$filename[i],".coloc_results_full.txt")
+  file=paste0("coloc_results/",p4$trait[i],"/",p4$source[i],"/",p4$locus[i],".",p4$ensembl_gene_id[i],".",p4$gene_name[i],".",p4$filename[i],".coloc_results_full.txt")
   if(file.exists(file)){
     tmp=read.table(file,header=T)
   }else{
     file=paste(p4$locus[i],p4$trait[i],p4$source[i],p4$filename[i],p4$gene_name[i],"coloc.rds",sep=".")
-    file=paste0( "~/Documents/analysis/eQTL/immune_panel/RDS_result_files/",file)
+    file=paste0( "RDS_result_files/",file)
     tmp=readRDS(file)
     tmp=tmp$results
   }
