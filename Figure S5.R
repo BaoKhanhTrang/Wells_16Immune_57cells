@@ -4,15 +4,9 @@ library(ggrepel)
 
 allv2g=readRDS("allv2g.rds")
 
-burren=read.table("Burren.v2g_v2g.txt",header=T)
-javrie=read.table("jav.v2g_v2g.txt",header=T)
-yang=NULL
-for(t in c("T0" ,"T20", "T1H", "T4H" ,"T24H")){
-  y=read.table(paste0("Yang2020_",t,".v2g_v2g.txt"),header=T)
-  y$study = paste0("Yang2020_",t)
-  y=y[-grep("close",y$type),]
-  yang = rbind(yang,y)
-}
+burren=readRDS("Burren_v2g.rds")
+javrie=readRDS("Javrie_v2g.rds")
+yang=readRDS("Yang2020_v2g.rds")
 
 # ======= Figure S5 A ======= 
 VennDiagram::venn.diagram(x = list(" "=unique(allv2g$gene_name),
