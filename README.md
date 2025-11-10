@@ -3,7 +3,11 @@ Source code for "3D chromatin-based variant-to-gene maps across 57 human cell ty
 
 Order of analyses steps:
 1 - S-LDSC Enrichement analysis
+
 2 - Variant-to-Gene (V2G) mapping
+
 3 - TF motif analysis
+
 4 - Enriched pathways analysis
+
 5 - Colocalization analysis
